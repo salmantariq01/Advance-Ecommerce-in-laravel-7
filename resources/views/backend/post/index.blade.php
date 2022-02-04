@@ -41,7 +41,7 @@
             </tr>
           </tfoot>
           <tbody>
-           
+          
             @foreach($posts as $post)   
               @php 
               $author_info=DB::table('users')->select('name')->where('id',$post->added_by)->get();
@@ -52,7 +52,7 @@
                 <tr>
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
-                    <td>{{$post->cat_info->title}}</td>
+
                     <td>{{$post->tags}}</td>
 
                     <td>
@@ -84,6 +84,7 @@
                     </td>
                 </tr>  
             @endforeach
+            
           </tbody>
         </table>
         <span style="float:right">{{$posts->links()}}</span>

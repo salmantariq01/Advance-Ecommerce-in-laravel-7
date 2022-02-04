@@ -35,7 +35,7 @@ return [
     // Ex: The private folder of user will be named as the user id.
     'private_folder_name'      => UniSharp\LaravelFilemanager\Handlers\ConfigHandler::class,
 
-    'allow_shared_folder'      => false,
+    'allow_shared_folder'      => true,
 
     'shared_folder_name'       => 'shares',
 
@@ -48,18 +48,6 @@ return [
     'folder_categories'        => [
         'file'  => [
             'folder_name'  => 'files',
-            'startup_view' => 'grid',
-            'max_size'     => 50000, // size in KB
-            'valid_mime'   => [
-                'image/jpeg',
-                'image/pjpeg',
-                'image/png',
-                'image/gif',
-                'image/svg+xml',
-            ],
-        ],
-        'image' => [
-            'folder_name'  => 'photos',
             'startup_view' => 'list',
             'max_size'     => 50000, // size in KB
             'valid_mime'   => [
@@ -67,9 +55,19 @@ return [
                 'image/pjpeg',
                 'image/png',
                 'image/gif',
-                'image/svg+xml',
                 'application/pdf',
                 'text/plain',
+            ],
+        ],
+        'image' => [
+            'folder_name'  => 'photos',
+            'startup_view' => 'grid',
+            'max_size'     => 50000, // size in KB
+            'valid_mime'   => [
+                'image/jpeg',
+                'image/pjpeg',
+                'image/png',
+                'image/gif',
             ],
         ],
     ],
@@ -94,18 +92,23 @@ return [
 
     'rename_file'              => false,
 
+    'rename_duplicates'        => false,
+
     'alphanumeric_filename'    => false,
 
     'alphanumeric_directory'   => false,
 
     'should_validate_size'     => false,
 
-    'should_validate_mime'     => false,
+    'should_validate_mime'     => true,
 
     // behavior on files with identical name
     // setting it to true cause old file replace with new one
     // setting it to false show `error-file-exist` error and stop upload
     'over_write_on_duplicate'  => false,
+
+    // Item Columns
+    'item_columns' => ['name', 'url', 'time', 'icon', 'is_file', 'is_image', 'thumb_url'],
 
     /*
     |--------------------------------------------------------------------------

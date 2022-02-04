@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-lg-7 col-12">
                                 <div class="hero-text">
-                                    <h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
+                                    <h1><span>UP TO 50% OFF </span>Chair for offices</h1>
                                     <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
                                     <div class="button">
                                         <a href="#" class="btn">Shop Now!</a>
@@ -40,11 +40,11 @@
                 @foreach($banners as $key=>$banner)
                 <div class="carousel-item {{(($key==0)? 'active' : '')}}">
                     <img class="first-slide" src="{{$banner->photo}}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block text-left">
+                    <!-- <div class="carousel-caption d-none d-md-block text-left">
                         <h1 class="wow fadeInDown">{{$banner->title}}</h1>
                         <p>{!! html_entity_decode($banner->description) !!}</p>
                         <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{route('product-grids')}}" role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
-                    </div>
+                    </div> -->
                 </div>  
             @endforeach   
         </div>
@@ -62,36 +62,7 @@
 <!--/ End Slider Area -->
 
 <!-- Start Small Banner  -->
-<section class="small-banner section">
-    <div class="container-fluid">
-        <div class="row">
-            @php 
-            $category_lists=DB::table('categories')->where('status','active')->limit(3)->get();
-            @endphp
-            @if($category_lists)
-                @foreach($category_lists as $cat)
-                    @if($cat->is_parent==1)
-                        <!-- Single Banner  -->
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="single-banner">
-                                @if($cat->photo)
-                                    <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
-                                @else
-                                    <img src="https://via.placeholder.com/600x370" alt="#">
-                                @endif
-                                <div class="content">
-                                    <h3>{{$cat->title}}</h3>
-                                        <a href="{{route('product-cat',$cat->slug)}}">Discover Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                    <!-- /End Single Banner  -->
-                @endforeach
-            @endif
-        </div>
-    </div>
-</section>
+
 <!-- End Small Banner -->
 
 <!-- Start Product Area -->
@@ -194,31 +165,29 @@
     $featured=DB::table('products')->where('is_featured',1)->where('status','active')->orderBy('id','DESC')->limit(1)->get();
 @endphp --}}
 <!-- Start Midium Banner  -->
-<section class="midium-banner">
+<!-- <section class="midium-banner">
     <div class="container">
         <div class="row">
             @if($featured)
                 @foreach($featured as $data)
-                    <!-- Single Banner  -->
+                     Single Banner  
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="single-banner">
-                            @php 
-                                $photo=explode(',',$data->photo);
-                            @endphp
-                            <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                           
+                           
                             <div class="content">
-                                <p>{{$data->cat_info['title']}}</p>
+                              
                                 <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
                                 <a href="{{route('product-detail',$data->slug)}}">Shop Now</a>
                             </div>
                         </div>
                     </div>
-                    <!-- /End Single Banner  -->
+                    End Single Banner  
                 @endforeach
             @endif
         </div>
     </div>
-</section>
+</section> -->
 <!-- End Midium Banner -->
 
 <!-- Start Most Popular -->
@@ -313,7 +282,7 @@
                                 <div class="col-lg-6 col-md-6 col-12 no-padding">
                                     <div class="content">
                                         <h4 class="title"><a href="#">{{$product->title}}</a></h4>
-                                        <p class="price with-discount">${{number_format($product->discount,2)}}</p>
+                                        <p class="price with-discount">${{number_format($product->price,2)}}</p>
                                     </div>
                                 </div>
                                 </div>

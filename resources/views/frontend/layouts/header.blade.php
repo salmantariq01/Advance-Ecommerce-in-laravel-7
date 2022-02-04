@@ -11,8 +11,8 @@
                                 $settings=DB::table('settings')->get();
                                 
                             @endphp
-                            <li><i class="ti-headphone-alt"></i>@foreach($settings as $data) {{$data->phone}} @endforeach</li>
-                            <li><i class="ti-email"></i> @foreach($settings as $data) {{$data->email}} @endforeach</li>
+                            <li><i class="ti-headphone-alt"></i>@foreach($settings as $data) +92-3348606944 @endforeach</li>
+                            <li><i class="ti-email"></i> @foreach($settings as $data) e-furniture@gmail.com @endforeach</li>
                         </ul>
                     </div>
                     <!--/ End Top Left -->
@@ -51,7 +51,7 @@
                         @php
                             $settings=DB::table('settings')->get();
                         @endphp                    
-                        <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"></a>
+                        <a href="{{route('home')}}"><h2>Furniture</h2></a>
                     </div>
                     <!--/ End Logo -->
                     <!-- Search Form -->
@@ -75,6 +75,8 @@
                             <select>
                                 <option >All Category</option>
                                 @foreach(Helper::getAllCategory() as $cat)
+                                    <option>{{$cat->title}}</option>
+                                    <option>{{$cat->title}}</option>
                                     <option>{{$cat->title}}</option>
                                 @endforeach
                             </select>

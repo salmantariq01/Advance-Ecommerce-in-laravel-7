@@ -61,7 +61,7 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->title}}</td>
-                    <td>{{$product->cat_info['title']}}
+                    
                       <sub>
                         @foreach($sub_cat_info as $data)
                           {{$data->title}}
